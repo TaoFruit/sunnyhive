@@ -3,8 +3,8 @@
  * (c) 2011-2012 Rico Sta. Cruz <rico@ricostacruz.com>
  * MIT Licensed.
  *
- * http://ricostacruz.com/jquery.transit
- * http://github.com/rstacruz/jquery.transit
+ * https://ricostacruz.com/jquery.transit
+ * https://github.com/rstacruz/jquery.transit
  */
 
 /*! 

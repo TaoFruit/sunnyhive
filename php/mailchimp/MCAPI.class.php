@@ -38,7 +38,7 @@ class MCAPI {
      */
     function MCAPI($apikey, $secure=false) {
         $this->secure = $secure;
-        $this->apiUrl = parse_url("http://api.mailchimp.com/" . $this->version . "/?output=php");
+        $this->apiUrl = parse_url("https://api.mailchimp.com/" . $this->version . "/?output=php");
         $this->api_key = $apikey;
     }
     function setTimeout($seconds){
@@ -322,9 +322,9 @@ class MCAPI {
             boolean generate_text optional Whether of not to auto-generate your Text content from the HTML content. Note that this will be ignored if the Text part of the content passed is not empty, defaults to false.
             boolean auto_tweet optional If set, this campaign will be auto-tweeted when it is sent - defaults to false. Note that if a Twitter account isn't linked, this will be silently ignored.
             array auto_fb_post optional If set, this campaign will be auto-posted to the page_ids contained in the array. If a Facebook account isn't linked or the account does not have permission to post to the page_ids requested, those failures will be silently ignored.
-            boolean fb_comments optional If true, the Facebook comments (and thus the <a href="http://kb.mailchimp.com/article/i-dont-want-an-archiave-of-my-campaign-can-i-turn-it-off/" target="_blank">archive bar</a> will be displayed. If false, Facebook comments will not be enabled (does not imply no archive bar, see previous link). Defaults to "true".
+            boolean fb_comments optional If true, the Facebook comments (and thus the <a href="https://kb.mailchimp.com/article/i-dont-want-an-archiave-of-my-campaign-can-i-turn-it-off/" target="_blank">archive bar</a> will be displayed. If false, Facebook comments will not be enabled (does not imply no archive bar, see previous link). Defaults to "true".
             boolean timewarp optional If set, this campaign must be scheduled 24 hours in advance of sending - default to false. Only valid for "regular" campaigns and "absplit" campaigns that split on schedule_time.
-            boolean ecomm360 optional If set, our <a href="http://www.mailchimp.com/blog/ecommerce-tracking-plugin/" target="_blank">Ecommerce360 tracking</a> will be enabled for links in the campaign
+            boolean ecomm360 optional If set, our <a href="https://www.mailchimp.com/blog/ecommerce-tracking-plugin/" target="_blank">Ecommerce360 tracking</a> will be enabled for links in the campaign
             array crm_tracking optional If set, enable CRM tracking for:<div style="padding-left:15px"><table>
                 array salesforce optional Enable SalesForce push back<div style="padding-left:15px"><table>
                     bool campaign optional - if true, create a Campaign object and update it with aggregate stats
@@ -350,7 +350,7 @@ class MCAPI {
                 string schedule_hour optional an hour between 0 and 24 - default to 4 (4am <em>local time</em>) - applies to all schedule types
                 string schedule_weekday optional for "weekly" only, a number specifying the day of the week to send: 0 (Sunday) - 6 (Saturday) - defaults to 1 (Monday)
                 string schedule_monthday optional for "monthly" only, a number specifying the day of the month to send (1 - 28) or "last" for the last day of a given month. Defaults to the 1st day of the month
-                array days optional used for "daily" schedules only, an array of the <a href="http://en.wikipedia.org/wiki/ISO-8601#Week_dates" target="_blank">ISO-8601 weekday numbers</a> to send on
+                array days optional used for "daily" schedules only, an array of the <a href="https://en.wikipedia.org/wiki/ISO-8601#Week_dates" target="_blank">ISO-8601 weekday numbers</a> to send on
                     bool 1 optional Monday, defaults to true
                     bool 2 optional Tuesday, defaults to true
                     bool 3 optional Wednesday, defaults to true
@@ -383,7 +383,7 @@ class MCAPI {
                 
                 int schedule_hour The hour of the day - 24 hour format in GMT - the autoresponder should be triggered, ignored for "hourly"
                 boolean use_import_time whether or not imported subscribers (ie, <em>any</em> non-double optin subscribers) will receive
-                array days optional used for "daily" schedules only, an array of the <a href="http://en.wikipedia.org/wiki/ISO-8601#Week_dates" target="_blank">ISO-8601 weekday numbers</a> to send on
+                array days optional used for "daily" schedules only, an array of the <a href="https://en.wikipedia.org/wiki/ISO-8601#Week_dates" target="_blank">ISO-8601 weekday numbers</a> to send on
                     bool 1 optional Monday, defaults to true
                     bool 2 optional Tuesday, defaults to true
                     bool 3 optional Wednesday, defaults to true
@@ -994,7 +994,7 @@ class MCAPI {
     }
 
     /**
-     * Get the URL to a customized <a href="http://eepurl.com/gKmL" target="_blank">VIP Report</a> for the specified campaign and optionally send an email to someone with links to it. Note subsequent calls will overwrite anything already set for the same campign (eg, the password)
+     * Get the URL to a customized <a href="https://eepurl.com/gKmL" target="_blank">VIP Report</a> for the specified campaign and optionally send an email to someone with links to it. Note subsequent calls will overwrite anything already set for the same campign (eg, the password)
      *
      * @section Campaign  Related
      *
@@ -1003,7 +1003,7 @@ class MCAPI {
             string to_email optional - optional, comma delimited list of email addresses to share the report with - no value means an email will not be sent
             string company optional - a company name to be displayed (use of a theme may hide this) - max 255 bytes
             int theme_id optional - either a global or a user-specific theme id. Currently this needs to be pulled out of either the Share Report or Cobranding web views by grabbing the "theme" attribute from the list presented.
-            string  css_url    optional - a link to an external CSS file to be included after our default CSS (http://vip-reports.net/css/vip.css) <strong>only if</strong> loaded via the "secure_url" - max 255 bytes
+            string  css_url    optional - a link to an external CSS file to be included after our default CSS (https://vip-reports.net/css/vip.css) <strong>only if</strong> loaded via the "secure_url" - max 255 bytes
      * @return array Array containing details for the shared report
                 string title The Title of the Campaign being shared
                 string url The URL to the shared report
@@ -1167,7 +1167,7 @@ class MCAPI {
 
     /**
      * Attach Ecommerce Order Information to a Campaign. This will generally be used by ecommerce package plugins 
-     * <a href="http://connect.mailchimp.com/category/ecommerce" target="_blank">provided by us or by 3rd part system developers</a>.
+     * <a href="https://connect.mailchimp.com/category/ecommerce" target="_blank">provided by us or by 3rd part system developers</a>.
      * @section Campaign  Related
      *
      * @param array $order an array of information pertaining to the order that has completed. Use the following keys:
@@ -1235,8 +1235,8 @@ class MCAPI {
                          double list_rating An auto-generated activity score for the list (0 - 5)
                          string subscribe_url_short Our eepurl shortened version of this list's subscribe form (will not change)
                          string subscribe_url_long The full version of this list's subscribe form (host will vary)
-                         string beamer_address The email address to use for this list's <a href="http://kb.mailchimp.com/article/how-do-i-import-a-campaign-via-email-email-beamer/">Email Beamer</a>
-                         string visibility Whether this list is Public (pub) or Private (prv). Used internally for projects like <a href="http://blog.mailchimp.com/introducing-wavelength/" target="_blank">Wavelength</a>
+                         string beamer_address The email address to use for this list's <a href="https://kb.mailchimp.com/article/how-do-i-import-a-campaign-via-email-email-beamer/">Email Beamer</a>
+                         string visibility Whether this list is Public (pub) or Private (prv). Used internally for projects like <a href="https://blog.mailchimp.com/introducing-wavelength/" target="_blank">Wavelength</a>
                          array stats various stats and counts for the list - many of these are cached for at least 5 minutes
                              double member_count The number of active members in the given list.
                              double unsubscribe_count The number of members who have unsubscribed from the given list.
@@ -1310,7 +1310,7 @@ class MCAPI {
                     array choices optional kind of - an array of strings to use as the choices for radio and dropdown type fields
                     string dateformat optional only valid for birthday and date fields. For birthday type, must be "MM/DD" (default) or "DD/MM". For date type, must be "MM/DD/YYYY" (default) or "DD/MM/YYYY". Any other values will be converted to the default.
                     string phoneformat optional "US" is the default - any other value will cause them to be unformatted (international)
-                    string defaultcountry optional the <a href="http://www.iso.org/iso/english_country_names_and_code_elements" target="_blank">ISO 3166 2 digit character code</a> for the default country. Defaults to "US". Anything unrecognized will be converted to the default.
+                    string defaultcountry optional the <a href="https://www.iso.org/iso/english_country_names_and_code_elements" target="_blank">ISO 3166 2 digit character code</a> for the default country. Defaults to "US". Anything unrecognized will be converted to the default.
     
      * @return bool true if the request succeeds, otherwise an error will be thrown
      */
@@ -1707,7 +1707,7 @@ class MCAPI {
                         string NEW-EMAIL set this to change the email address. This is only respected on calls using update_existing or when passed to listUpdateMember(). Required to change via listBatchSubscribe() - EMAIL takes precedence on other calls, though either will work.
                         array GROUPINGS Set Interest Groups by Grouping. Each element in this array should be an array containing the "groups" parameter which contains a comma delimited list of Interest Groups to add. Commas in Interest Group names should be escaped with a backslash. ie, "," =&gt; "\," and either an "id" or "name" parameter to specify the Grouping - get from listInterestGroupings()
                         string OPTIN_IP Set the Opt-in IP field. <em>Abusing this may cause your account to be suspended.</em> We do validate this and it must not be a private IP address.
-                        string OPTIN_TIME Set the Opt-in Time field. <em>Abusing this may cause your account to be suspended.</em> We do validate this and it must be a valid date. Use YYYY-MM-DD HH:ii:ss to be safe. Generally, though, anything strtotime() understands we'll understand - <a href="http://us2.php.net/strtotime" target="_blank">http://us2.php.net/strtotime</a>
+                        string OPTIN_TIME Set the Opt-in Time field. <em>Abusing this may cause your account to be suspended.</em> We do validate this and it must be a valid date. Use YYYY-MM-DD HH:ii:ss to be safe. Generally, though, anything strtotime() understands we'll understand - <a href="https://us2.php.net/strtotime" target="_blank">https://us2.php.net/strtotime</a>
                         array MC_LOCATION Set the members geographic location. By default if this merge field exists, we'll update using the optin_ip if it exists. If the array contains LATITUDE and LONGITUDE keys, they will be used. NOTE - this will slow down each subscribe call a bit, especially for lat/lng pairs in sparsely populated areas. Currently our automated background processes can and will overwrite this based on opens and clicks.
                         
                         <strong>Handling Field Data Types</strong> - most fields you can just pass a string and all is well. For some, though, that is not the case...
@@ -1718,7 +1718,7 @@ class MCAPI {
                         string birthday the month and day of birth, passed as MM/DD
                         array birthday the month and day of birth, passed in an array using the keys <strong>month</strong> and <strong>day</strong>
     
-                        string date use YYYY-MM-DD to be safe. Generally, though, anything strtotime() understands we'll understand - <a href="http://us2.php.net/strtotime" target="_blank">http://us2.php.net/strtotime</a>
+                        string date use YYYY-MM-DD to be safe. Generally, though, anything strtotime() understands we'll understand - <a href="https://us2.php.net/strtotime" target="_blank">https://us2.php.net/strtotime</a>
                         string dropdown can be a normal string - we <em>will</em> validate that the value is a valid option
                         string image must be a valid, existing url. we <em>will</em> check its existence
                         string multi_choice can be a normal string - we <em>will</em> validate that the value is a valid option
@@ -1867,7 +1867,7 @@ class MCAPI {
      * @example mcapi_listMembers.php
      *
      * @param string $id the list id to connect to. Get by calling lists()
-     * @param string $status the status to get members for - one of(subscribed, unsubscribed, <a target="_blank" href="http://eepurl.com/gWOO">cleaned</a>, updated), defaults to subscribed
+     * @param string $status the status to get members for - one of(subscribed, unsubscribed, <a target="_blank" href="https://eepurl.com/gWOO">cleaned</a>, updated), defaults to subscribed
      * @param string $since optional pull all members whose status (subscribed/unsubscribed/cleaned) has changed or whose profile (updated) has changed since this date/time (in GMT) - format is YYYY-MM-DD HH:mm:ss (24hr)
      * @param int $start optional for large data sets, the page number to start at - defaults to 1st page of data (page 0)
      * @param int $limit optional for large data sets, the number of results to return - defaults to 100, upper limit set at 15000
@@ -1913,13 +1913,13 @@ class MCAPI {
                     string timestamp_signup The date/time the double optin was initiated. This may be blank if single optin is used.
                     string ip_opt IP Address this address opted in from.
                     string timestamp_opt The date/time the optin completed
-                    int member_rating the rating of the subscriber. This will be 1 - 5 as described <a href="http://eepurl.com/f-2P" target="_blank">here</a>
+                    int member_rating the rating of the subscriber. This will be 1 - 5 as described <a href="https://eepurl.com/f-2P" target="_blank">here</a>
                     string campaign_id If the user is unsubscribed and they unsubscribed from a specific campaign, that campaign_id will be listed, otherwise this is not returned.
                     array lists An associative array of the other lists this member belongs to - the key is the list id and the value is their status in that list.
                     string timestamp The date/time this email address entered it's current status
                     string info_changed The last time this record was changed. If the record is old enough, this may be blank.
                     int web_id The Member id used in our web app, allows you to create a link directly to it
-                    bool is_gmonkey Whether the member is a <a href="http://mailchimp.com/features/golden-monkeys/" target="_blank">Golden Monkey</a> or not.
+                    bool is_gmonkey Whether the member is a <a href="https://mailchimp.com/features/golden-monkeys/" target="_blank">Golden Monkey</a> or not.
                     array geo the geographic information if we have it. including:
                         string latitude the latitude
                         string longitude the longitude
@@ -2060,7 +2060,7 @@ class MCAPI {
     }
 
     /**
-     * Retrieve the clients that the list's subscribers have been tagged as being used based on user agents seen. Made possible by <a href="http://user-agent-string.info" target="_blank">user-agent-string.info</a>
+     * Retrieve the clients that the list's subscribers have been tagged as being used based on user agents seen. Made possible by <a href="https://user-agent-string.info" target="_blank">user-agent-string.info</a>
      *
      * @section List Related
      *
@@ -2148,7 +2148,7 @@ class MCAPI {
      * @example xml-rpc_create_template.php
      *
      * @param string $name the name for the template - names must be unique and a max of 50 bytes
-     * @param string $html a string specifying the entire template to be created. This is <strong>NOT</strong> campaign content. They are intended to utilize our <a href="http://www.mailchimp.com/resources/email-template-language/" target="_blank">template language</a>.
+     * @param string $html a string specifying the entire template to be created. This is <strong>NOT</strong> campaign content. They are intended to utilize our <a href="https://www.mailchimp.com/resources/email-template-language/" target="_blank">template language</a>.
      * @return int the new template id, otherwise an error is thrown.
      */
     function templateAdd($name, $html) {
@@ -2166,7 +2166,7 @@ class MCAPI {
      * @param int $id the id of the user template to update
      * @param array  $values the values to updates - while both are optional, at least one should be provided. Both can be updated at the same time.
             string name optional the name for the template - names must be unique and a max of 50 bytes
-            string html optional a string specifying the entire template to be created. This is <strong>NOT</strong> campaign content. They are intended to utilize our <a href="http://www.mailchimp.com/resources/email-template-language/" target="_blank">template language</a>.
+            string html optional a string specifying the entire template to be created. This is <strong>NOT</strong> campaign content. They are intended to utilize our <a href="https://www.mailchimp.com/resources/email-template-language/" target="_blank">template language</a>.
         
      * @return boolean true if the template was updated, otherwise an error will be thrown
      */
@@ -2445,7 +2445,7 @@ class MCAPI {
 
     /**
      * Import Ecommerce Order Information to be used for Segmentation. This will generally be used by ecommerce package plugins 
-     * <a href="http://connect.mailchimp.com/category/ecommerce" target="_blank">provided by us or by 3rd part system developers</a>.
+     * <a href="https://connect.mailchimp.com/category/ecommerce" target="_blank">provided by us or by 3rd part system developers</a>.
      * @section Ecommerce
      *
      * @param array $order an array of information pertaining to the order that has completed. Use the following keys:
@@ -2635,7 +2635,7 @@ class MCAPI {
     }
 
     /**
-     * Expire a Specific API Key. Note that if you expire all of your keys, just visit <a href="http://admin.mailchimp.com/account/api" target="_blank">your API dashboard</a>
+     * Expire a Specific API Key. Note that if you expire all of your keys, just visit <a href="https://admin.mailchimp.com/account/api" target="_blank">your API dashboard</a>
      * to create a new one. If you are trying to shut off access to your account for an old developer, change your 
      * MailChimp password, then expire all of the keys they had access to. Note that this takes effect immediately, so make 
      * sure you replace the keys in any working application before expiring them! Consider yourself warned... 
@@ -2757,7 +2757,7 @@ class MCAPI {
                 string email     The email address of the member
                 string fname IF a FNAME merge field exists on the list, that value for the member
                 string lname IF a LNAME merge field exists on the list, that value for the member
-                int    member_rating the rating of the subscriber. This will be 1 - 5 as described <a href="http://eepurl.com/f-2P" target="_blank">here</a>
+                int    member_rating the rating of the subscriber. This will be 1 - 5 as described <a href="https://eepurl.com/f-2P" target="_blank">here</a>
                 string member_since the datetime the member was added and/or confirmed
     */
     function gmonkeyMembers() {
@@ -2780,7 +2780,7 @@ class MCAPI {
                 string email     The email address of the member
                 string fname IF a FNAME merge field exists on the list, that value for the member
                 string lname IF a LNAME merge field exists on the list, that value for the member
-                int    member_rating the rating of the subscriber. This will be 1 - 5 as described <a href="http://eepurl.com/f-2P" target="_blank">here</a>
+                int    member_rating the rating of the subscriber. This will be 1 - 5 as described <a href="https://eepurl.com/f-2P" target="_blank">here</a>
                 string member_since the datetime the member was added and/or confirmed
                 array geo the geographic information if we have it. including:
                     string latitude the latitude

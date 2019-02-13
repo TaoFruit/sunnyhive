@@ -1,4 +1,4 @@
-/*! jquery-smartresize http://github.com/louisremi/jquery-smartresize | http://louisremi.mit-license.org/ */
+/*! jquery-smartresize https://github.com/louisremi/jquery-smartresize | https://louisremi.mit-license.org/ */
 (function (a) {
     var b = a.event,
         c;

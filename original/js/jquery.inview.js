@@ -1,6 +1,6 @@
 /**
  * author Remy Sharp
- * url http://remysharp.com/2009/01/26/element-in-view-event-plugin/
+ * url https://remysharp.com/2009/01/26/element-in-view-event-plugin/
  */
 (function ($) {
     function getViewportHeight() {
@@ -60,5 +60,5 @@
 })(jQuery);
 
 
-/*! jquery-smartresize http://github.com/louisremi/jquery-smartresize | http://louisremi.mit-license.org/ */
+/*! jquery-smartresize https://github.com/louisremi/jquery-smartresize | https://louisremi.mit-license.org/ */
 (function(e){var t=e.event,n;t.special.smartresize={setup:function(){e(this).bind("resize",t.special.smartresize.handler)},teardown:function(){e(this).unbind("resize",t.special.smartresize.handler)},handler:function(e,t){var r=this,i=arguments;e.type="smartresize";n&&clearTimeout(n);n=setTimeout(function(){jQuery.event.handle.apply(r,i)},"execAsap"===t?0:100)}};e.fn.smartresize=function(e){return e?this.bind("smartresize",e):this.trigger("smartresize",["execAsap"])}})(jQuery)
