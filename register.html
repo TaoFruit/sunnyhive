@@ -30,6 +30,10 @@
 <link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
 <!--jquery-->
 <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+
+<!-- <script src="js/sweetalert2/dist/sweetalert2.all.min.js"></script> -->
+
+<script src='https://www.google.com/recaptcha/api.js?render=6LcHIYcUAAAAAPnqH0iBwnDeFma0mWAMJKJHAoEO'></script>
 </head>
 <body>
 	<!--wrapper starts-->
@@ -224,11 +228,11 @@
         	<!--breadcrumb-section starts-->
             <div class="breadcrumb-section">
             	<div class="container">
-                	<h1>Contact</h1>
+                	<h1>Register</h1>
                     <div class="breadcrumb">
                         <a href="index.html">Home</a>
                         <span class="fa fa-angle-double-right"></span>
-                        <span class="current">Contact</span>
+                        <span class="current">Register</span>
                     </div>
                 </div>
             </div>
@@ -238,27 +242,112 @@
             	<!--primary starts-->
             	<section id="primary" class="content-full-width">
 				
-					<div id="map"> </div>
                     
-                    <div class="dt-sc-hr"> </div>
                     
                     <!--dt-sc-two-third starts-->
                     <div class="column dt-sc-three-fourth first contact_form_outer">
-                        <form name="frcontact" class="contact-form" method="post" action="php/contactmail.php">
-                        	<h2>We'd Like to Hear From You!</h2>
+                        <form name="frcontact" class="contact-form" method="post" action="https://prod-09.centralus.logic.azure.com:443/workflows/2e2099d779de4b459a057b9bc02f34a0/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ENJv6sqj3ihcSuT32escnXSgsrI-uDmtntYPha7UUdA">
+                        	<h2>Student Info</h2>
                             <p class="column dt-sc-one-third first">
-                                <input id="name" name="txtname" type="text" placeholder="Name" required="">
+                                <input id="firstname" name="firstname" type="text" placeholder="Student First Name" required="">
+                            </p>
+                             <p class="column dt-sc-one-third">
+                                <input id="lastname" name="lastname" type="text" placeholder="Student Last Name" required="">
+                            </p>
+                             <p class="column dt-sc-one-third">
+                                 <input id="birth" name="birthdate" type="text" placeholder="Birth Date (mm/dd/year)" required="">
+                            </p>
+                            <p class="column dt-sc-one-fourth first">
+                                <img align="right" src="images/dragon.png" width="85" height="55"><br>Pick a fun name.
+                                
+                            </p>
+                            <p class="column dt-sc-one-fourth">
+                                <input id="nickname" name="nickname" type="text" placeholder="Student Nickname" required="">
+                            </p>
+                            <div class="column dt-sc-one-fourth">
+                            <ul>
+                                <li>
+                                    <label><input type="radio" name="gender" id="male" value="male" minlength="1"><a class="tooltip-1" data-placement="right" title="I am a Boy">Boy</a></label>
+                                </li>
+                                <li>
+                                    <label><input type="radio" name="gender" id="female" value="female"><a class="tooltip-1" data-placement="right" title="I am a Girl">Girl</a></label>
+                                </li>
+                            </ul>
+                            </div>
+                            
+                            <div class="column dt-sc-one-fourth">
+                              <ul>
+                                <li>
+                                    <label><input type="radio" name="program" id="online" value="online" minlength="1"><a class="tooltip-1" data-placement="right" title="Digital Program">Online</a></label>
+                                </li>
+                                <li>
+                                    <label><input type="radio" name="program" id="inperson" value="inperson"><a class="tooltip-1" data-placement="right" title="In Person Education">In Person</a></label>
+                                </li>
+                            </ul>
+                            </div>
+                           
+                            <img src="images/footer_strip.jpg">
+                            <br><br>
+                            <h2>Parent Info</h2>
+                            <p class="column dt-sc-one-third first">
+                                <input id="pfirstname" name="pfirstname" type="text" placeholder="First Name" required="">
+                            </p>
+                             <p class="column dt-sc-one-third">
+                                <input id="plastname" name="plastname" type="text" placeholder="Last Name" required="">
+                            </p>
+                             <p class="column dt-sc-one-third">
+                                <input id="tel" name="tel" type="text" placeholder="Phone Number" required="">
+                            </p>
+                            <p class="column dt-sc-one-third first">
+                                <input id="email" name="email" type="email" placeholder="Email" required="">
                             </p>
                             <p class="column dt-sc-one-third">
-                                <input id="email" name="txtemail" type="email" placeholder="Email ID" required="">
+                            	<input id="subject" name="link" type="text" placeholder="@ Social Media Name" required="">
                             </p>
                             <p class="column dt-sc-one-third">
-                            	<input id="subject" name="txtsubject" type="text" placeholder="Subject" required="">
+                            	<select name="location" id="location">
+									<option value="" selected>Select Location</option>
+                                    <option value="Africa">Africa</option>
+                                    <option value="Asia">Asia</option>
+									<option value="Australia">Australia</option>
+									<option value="Europe">Europe</option>									
+									<option value="North America">North America</option>
+									<option value="South America">South America</option>
+								</select>
                             </p>
+                            <p class="column dt-sc-one-third first">
+                                <input id="email" name="address" type="text" placeholder="Address" required="">
+                            </p>
+                            <p class="column dt-sc-one-third">
+                            	<input id="subject" name="link" type="text" placeholder="City" required="">
+                            </p>
+                            <p class="column dt-sc-one-third">
+                            	<input id="zipcode" name="zipcode" type="text" placeholder="Zip/Postal Code" required="">
+                            </p>
+                            
                             <p>
-                            	<textarea id="comment" name="txtmessage" placeholder="Message"></textarea>
+                            	<textarea id="comment" name="message" placeholder="Message"></textarea>
                             </p>
                             <div id="ajax_contact_msg"> </div>
+                            <p>
+
+                            <div class="form-group">
+					<label><input type="checkbox" name="understand_days" id="understand_days" class="required" value="Yes">I give full consent to Sunny Hive and Tao Learning Institute to teach my child.</label>
+				</div>
+                <div class="form-group">
+					<label><input type="checkbox" name="policy_terms" id="policy_terms" class="required" value="Yes">I accept the <a href="#0">terms and conditions</a> and general policy.</label>
+				</div>
+                <div class="g-recaptcha"
+                    data-sitekey="6LcHIYcUAAAAAPnqH0iBwnDeFma0mWAMJKJHAoEO"
+                    data-callback="onSubmit"
+                    data-size="invisible">
+                </div>
+
+                <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                <input type="text" name="_gotcha" style="display:none" />
+                </p>
+
+
                             <p>
                                 <input name="submit" type="submit" id="submit" class="dt-sc-button medium" value="Send Email">
                             </p>
@@ -347,7 +436,7 @@
                     <div class="column dt-sc-one-fourth">
                         <aside class="widget tweetbox">
                             <h3 class="widgettitle yellow_sketch"><a href="#"> Twitter Feeds </a></h3>
-                            <div id="tweets_container"></div>
+                            <div id="tweets_container2"></div>
                         </aside>
                     </div>
                     <div class="column dt-sc-one-fourth">
@@ -413,9 +502,6 @@
     <script type="text/javascript" src="js/jquery.tipTip.minified.js"></script>
     <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
     <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-    <script type="text/javascript" src="js/twitter/jquery.tweet.min.js"></script>    
-    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-	<script type="text/javascript" src="js/jquery.gmap.min.js"></script> 
     <script type="text/javascript" src="js/shortcodes.js"></script>      
     <script type="text/javascript" src="js/custom.js"></script>
     
