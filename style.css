@@ -178,7 +178,7 @@ header ul.dt-sc-social-icons li{display:inline; float:left; margin-right:1px;}
 
 header ul.dt-sc-social-icons li:last-child{margin-right:0px;}
 
-header ul.dt-sc-social-icons li a{position:relative; border-top:5px solid; display:inline-block; width:50px; height:70px; overflow:hidden; color:#292929; line-height:65px; text-align:center; background-color:transparent; margin-top:-5px;}
+header ul.dt-sc-social-icons li a{position:relative; border-top:5px solid; display:inline-block; width:100px; height:70px; overflow:hidden; color:#292929; line-height:65px; text-align:center; background-color:transparent; margin-top:-5px;}
 
 header ul.dt-sc-social-icons li a:before{opacity:1; -webkit-transition:opacity .2s ease-out; -moz-transition:opacity .2s ease-out; transition:opacity .2s ease-out;}
 
@@ -619,7 +619,7 @@ margin:auto;}
 
 .front-portfolio .portfolio-thumb img{}
 	
-.front-portfolio .image-overlay{position:absolute; visibility:hidden; opacity:0; top:0px; left:0px; width:100%; height:100%; z-index:9999; background:rgba(0,140,153,0.9);}
+.front-portfolio .image-overlay{position:absolute; visibility:hidden; opacity:0; top:0px; left:0px; width:100%; height:100%; z-index:9999; background:rgba(181, 217, 226, 0.9);}
 
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
 		/* Safari only override */
@@ -640,7 +640,7 @@ margin:auto;}
 
 .portfolio-content4 .front-portfolio .image-overlay{background:#F8DAD2;}
 
-.portfolio-content5 .front-portfolio .image-overlay{background:#E8F9FF;}
+.portfolio-content5 .front-portfolio .image-overlay{background:rgb(156, 200, 218);}
 
 .portfolio-content6 .front-portfolio .image-overlay{background:#B5D9E2;}
 
@@ -656,7 +656,7 @@ margin:auto;}
 
 .portfolio-content4 .front-portfolio .image-overlay a{color:#F8DAD2;}
 
-.portfolio-content5 .front-portfolio .image-overlay a{color:#B5D9E2;}
+.portfolio-content5 .front-portfolio .image-overlay a{color:rgb(156, 200, 218);}
 
 .portfolio-content6 .front-portfolio .image-overlay a{color:#FFD0D7;}
 
@@ -841,7 +841,7 @@ margin:auto;}
 
 .dt-sc-team .dt-sc-entry-thumb img{float:left; width:100%;}
 
-.dt-sc-team .dt-sc-image-overlay, .portfolio .image-overlay{background:rgba(24, 151, 163, 0.9); float:left; height:100%; left:0; opacity:0; position:absolute; top:0; transition:opacity 0.2s ease 0s; -moz-transition:opacity 0.2s ease 0s; -webkit-transition:opacity 0.2s ease 0s; visibility:hidden; width:100%;}
+.dt-sc-team .dt-sc-image-overlay, .portfolio .image-overlay{background:rgba(181, 217, 226, 0.9); float:left; height:100%; left:0; opacity:0; position:absolute; top:0; transition:opacity 0.2s ease 0s; -moz-transition:opacity 0.2s ease 0s; -webkit-transition:opacity 0.2s ease 0s; visibility:hidden; width:100%;}
 
 .dt-sc-team:hover .dt-sc-entry-thumb .dt-sc-image-overlay, .portfolio:hover .image-overlay{opacity:1; visibility:visible;}
 
