@@ -190,7 +190,10 @@ header ul.dt-sc-social-icons li a:hover span{top:0px;}
 
 header ul.dt-sc-social-icons li a.facebook:before{content:"\f09a";}
 
-header ul.dt-sc-social-icons li a.youtube:before{content:"\f167";}
+header ul.dt-sc-social-icons li a.youtube:before{content:"\f099";}
+
+header ul.dt-sc-social-icons li a.login:before{content:"LOGIN";     text-transform: uppercase;    font-size: 14px; font-family: 'Lato', sans-serif;}
+header ul.dt-sc-social-icons li a.register:before{content:"REGISTER";     text-transform: uppercase;   font-size: 14px;  font-family: 'Lato', sans-serif;}
 
 header ul.dt-sc-social-icons li a.twitter:before{content:"\f099";}
 
@@ -205,6 +208,14 @@ header ul.dt-sc-social-icons li a.youtube span{border-color:#b70400; background:
 header ul.dt-sc-social-icons li a.facebook{border-color:#35538f;}
 	
 header ul.dt-sc-social-icons li a.youtube{border-color:#b70400;}
+
+header ul.dt-sc-social-icons li a.register{border-color:rgb(255, 208, 215);  text-transform: uppercase;    font-size: 14px; font-family: 'Lato', sans-serif;}
+
+header ul.dt-sc-social-icons li a.login{border-color:#B5D9E2;  text-transform: uppercase;    font-size: 14px; font-family: 'Lato', sans-serif;}
+
+header ul.dt-sc-social-icons li a.register span{border-color:rgb(255, 208, 215); background:rgb(255, 208, 215);}
+
+header ul.dt-sc-social-icons li a.login span{border-color:#B5D9E2; background:#B5D9E2;}
 
 header ul.dt-sc-social-icons li a.youtube span{border-color:#b70400; background:#b70400;}
 
