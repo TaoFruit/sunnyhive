@@ -30,6 +30,9 @@
 <link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
 <!--jquery-->
 <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+<script src="js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+<script src='https://www.google.com/recaptcha/api.js?render=6LcHIYcUAAAAAPnqH0iBwnDeFma0mWAMJKJHAoEO'></script>
 </head>
 <body>
 	<!--wrapper starts-->
@@ -184,28 +187,62 @@
             	<!--primary starts-->
             	<section id="primary" class="content-full-width">
 				
-					<div id="map"> </div>
-                    
-                    <div class="dt-sc-hr"> </div>
-                    
-                    <!--dt-sc-two-third starts-->
+				 <!--dt-sc-two-third starts-->
                     <div class="column dt-sc-three-fourth first contact_form_outer">
-                        <form name="frcontact" class="contact-form" method="post" action="php/contactmail.php">
-                        	<h2>We'd Like to Hear From You!</h2>
+                        <form name="frcontact" class="contact-form" method="post" action="https://prod-09.centralus.logic.azure.com:443/workflows/2e2099d779de4b459a057b9bc02f34a0/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ENJv6sqj3ihcSuT32escnXSgsrI-uDmtntYPha7UUdA">
+                        	
+                            <h2>Info</h2>
                             <p class="column dt-sc-one-third first">
-                                <input id="name" name="txtname" type="text" placeholder="Name" required="">
+                                <input id="pfirstname" name="pfirstname" type="text" placeholder="First Name" required="">
+                            </p>
+                             <p class="column dt-sc-one-third">
+                                <input id="plastname" name="plastname" type="text" placeholder="Last Name" required="">
+                            </p>
+                             <p class="column dt-sc-one-third">
+                                <input id="tel" name="tel" type="text" placeholder="Phone Number" required="">
+                            </p>
+                            <p class="column dt-sc-one-third first">
+                                <input id="email" name="email" type="email" placeholder="Email" required="">
                             </p>
                             <p class="column dt-sc-one-third">
-                                <input id="email" name="txtemail" type="email" placeholder="Email ID" required="">
+                            	<input id="subject" name="link" type="text" placeholder="@ Social Media Name" required="">
                             </p>
                             <p class="column dt-sc-one-third">
-                            	<input id="subject" name="txtsubject" type="text" placeholder="Subject" required="">
+                            	<select name="location" id="location">
+									<option value="" selected>Select Location</option>
+                                    <option value="Africa">Africa</option>
+                                    <option value="Asia">Asia</option>
+									<option value="Australia">Australia</option>
+									<option value="Europe">Europe</option>									
+									<option value="North America">North America</option>
+									<option value="South America">South America</option>
+								</select>
                             </p>
+                            <p class="column dt-sc-one-third first">
+                                <input id="email" name="address" type="text" placeholder="Address" required="">
+                            </p>
+                            <p class="column dt-sc-one-third">
+                            	<input id="subject" name="link" type="text" placeholder="City" required="">
+                            </p>
+                            <p class="column dt-sc-one-third">
+                            	<input id="zipcode" name="zipcode" type="text" placeholder="Zip/Postal Code" required="">
+                            </p>
+                            
                             <p>
-                            	<textarea id="comment" name="txtmessage" placeholder="Message"></textarea>
+                            	<textarea id="comment" name="message" placeholder="Message"></textarea>
                             </p>
                             <div id="ajax_contact_msg"> </div>
                             <p>
+                <div class="g-recaptcha"
+                    data-sitekey="6LcHIYcUAAAAAPnqH0iBwnDeFma0mWAMJKJHAoEO"
+                    data-callback="onSubmit"
+                    data-size="invisible">
+                </div>
+
+                <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                <input type="text" name="_gotcha" style="display:none" />
+                </p>
+                        <p>
                                 <input name="submit" type="submit" id="submit" class="dt-sc-button medium" value="Send Email">
                             </p>
                         </form>
@@ -214,18 +251,18 @@
                     
                     <!--dt-sc-one-third starts-->
                     <div class="column dt-sc-one-fourth class_hours">
-                    	<h2>Class Hours</h2>
+                    	<h2>Sunny Hive Hours</h2>
                         <ul class="class_hours">
-                        	<li>Monday<span>9am - 3pm</span></li>
-                            <li>Tuesday<span>9am - 3pm</span></li>
-                            <li>Wednesday<span>9am - 3pm</span></li>
-                            <li>Thursday<span>9am - 3pm</span></li>
-                            <li>Friday<span>9am - 3pm</span></li>
-                            <li>Saturday<span>Holiday</span></li>
-                            <li>Sunday<span>Holiday</span></li>
+                        	<li>Monday<span>7am - 7pm</span></li>
+                            <li>Tuesday<span>7am - 7pm</span></li>
+                            <li>Wednesday<span>7am - 7pm</span></li>
+                            <li>Thursday<span>7am - 7pm</span></li>
+                            <li>Friday<span>7am - 7pm</span></li>
+                            <li>Saturday<span>Closed</span></li>
+                            <li>Sunday<span>Closed</span></li>
                         </ul>
                         <div class="dt-sc-hr-small"></div>
-                        <p><strong><span class="highlighter">We care</span> about your dearest</strong></p>
+                        <p><strong><span class="highlighter">Join Us</span> on social media</strong></p>
                         <ul class="dt-sc-social-icons">
                         	<li class="facebook"><a href="#" title="Facebook" class="dt-sc-tooltip-bottom"><img src="images/facebook.png" alt="" title=""></a></li>
                             <li class="twitter"><a href="#" title="Twitter" class="dt-sc-tooltip-bottom"><img src="images/twitter.png" alt="" title=""></a></li>
@@ -358,10 +395,7 @@
     <script type="text/javascript" src="js/validation.js"></script>
     <script type="text/javascript" src="js/jquery.tipTip.minified.js"></script>
     <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-    <script type="text/javascript" src="js/twitter/jquery.tweet.min.js"></script>    
-    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-	<script type="text/javascript" src="js/jquery.gmap.min.js"></script> 
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>   
     <script type="text/javascript" src="js/shortcodes.js"></script>      
     <script type="text/javascript" src="js/custom.js"></script>
     
