@@ -229,14 +229,14 @@ jQuery(document).ready(function($){
 	}
 		
 	//TWITTER TWEETS...
-	$("#tweets_container").tweet({
+	/* $("#tweets_container").tweet({
 		modpath: 'js/twitter/',
 		username: "envato",
 		count: 3,
 		loading_text: "loading tweets...",
 		join_text: '<i class="icon-twitter"></i>',
 		template: "{join} {time}, {text}"
-	});
+	}); */
 	
 	//GO TO TOP...
 	var offset = 220;
@@ -280,39 +280,39 @@ jQuery(document).ready(function($){
 		return false;
 		
     });
-	$('form[name="frmnewsletter"]').validate({
-		rules: { 
-			mc_email: { required: true, email: true }
-		},
-		errorPlacement: function(error, element) {
-			element.parent('p').addClass('error');
-		}
-	});
+	// $('form[name="frmnewsletter"]').validate({
+	// 	rules: { 
+	// 		mc_email: { required: true, email: true }
+	// 	},
+	// 	errorPlacement: function(error, element) {
+	// 		element.parent('p').addClass('error');
+	// 	}
+	// });
 
 	//CONTACT FORM VALIDATION & MAIL SENDING....
-	$('form[name="frcontact"]').submit(function () {
+	// $('form[name="frcontact"]').submit(function () {
 		
-		var This = $(this);
-		if($(This).valid()) {
-			var action = $(This).attr('action');
+	// 	var This = $(this);
+	// 	if($(This).valid()) {
+	// 		var action = $(This).attr('action');
 
-			var data_value = unescape($(This).serialize());
-			$.ajax({
-				 type: "POST",
-				 url:action,
-				 data: data_value,
-				 error: function (xhr, status, error) {
-					 confirm('The page save failed.');
-				   },
-				  success: function (response) {
-					$('#ajax_contact_msg').html(response);
-					$('#ajax_contact_msg').slideDown('slow');
-				 }
-			});
-		}
-		return false;
+	// 		var data_value = unescape($(This).serialize());
+	// 		$.ajax({
+	// 			 type: "POST",
+	// 			 url:action,
+	// 			 data: data_value,
+	// 			 error: function (xhr, status, error) {
+	// 				 confirm('The page save failed.');
+	// 			   },
+	// 			  success: function (response) {
+	// 				$('#ajax_contact_msg').html(response);
+	// 				$('#ajax_contact_msg').slideDown('slow');
+	// 			 }
+	// 		});
+	// 	}
+	// 	return false;
 		
-    });
+    // });
 	$('form[name="frmcontact"]').validate({
 		rules: { 
 			txtname: { required: true },

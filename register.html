@@ -31,9 +31,19 @@
 <!--jquery-->
 <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
 
-<script src="js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script src="https://taolearning.org/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
 <script src='https://www.google.com/recaptcha/api.js?render=6LcHIYcUAAAAAPnqH0iBwnDeFma0mWAMJKJHAoEO'></script>
+<script>
+    grecaptcha.ready(function() {
+    grecaptcha.execute('6LcHIYcUAAAAAPnqH0iBwnDeFma0mWAMJKJHAoEO', {action: 'Sunny Hive Registration'})
+    .then(function(token) {
+    var recaptchaResponse = document.getElementById('recaptchaResponse');
+    recaptchaResponse.value = token;
+    // Verify the token on the server.
+    });
+    });
+</script>
 </head>
 <body>
 	<!--wrapper starts-->
@@ -192,7 +202,7 @@
                     
                     <!--dt-sc-two-third starts-->
                     <div class="column dt-sc-three-fourth first contact_form_outer">
-                        <form name="frcontact" class="contact-form" method="post" action="https://prod-09.centralus.logic.azure.com:443/workflows/2e2099d779de4b459a057b9bc02f34a0/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ENJv6sqj3ihcSuT32escnXSgsrI-uDmtntYPha7UUdA">
+                        <form name="frcontact" class="contact-form" method="post" action="https://prod-09.centralus.logic.azure.com:443/workflows/2e2099d779de4b459a057b9bc02f34a0/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ENJv6sqj3ihcSuT32escnXSgsrI-uDmtntYPha7UUdA" id="register">
                         	<h2>Student Info</h2>
                             <p class="column dt-sc-one-third first">
                                 <input id="firstname" name="firstname" type="text" placeholder="Student First Name" required="">
@@ -430,9 +440,10 @@
     <!--wrapper ends-->
     <a href="" title="Go to Top" class="back-to-top">To Top ↑</a>
     <!--Java Scripts-->
-    <script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-migrate.min.js"></script> -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     
 	<script type="text/javascript" src="js/jquery.tabs.min.js"></script>
 	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
@@ -449,5 +460,54 @@
     <script type="text/javascript" src="js/shortcodes.js"></script>      
     <script type="text/javascript" src="js/custom.js"></script>
     
+
+
+
+ <script>
+   jQuery(document).ready(function($){
+       $("#register").submit(function ( event ) {
+         event.preventDefault(); //prevent default action 
+
+    if(!$("#register").valid()) {
+    return false; //doesn't validate
+    }else
+    {
+    
+    console.log('Before Ajax.');
+    $.ajax({
+            type: $(this).attr('method'),
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function (data) {
+                $("#register")[0].reset();
+                $("input:checkbox").attr('checked', false);
+                Swal({
+                title: '<strong>Registration Successful</strong>',
+                type: 'success',
+                html:
+                    'Check your email for Login details.<br>Account available within 5 minutes.',
+                showCloseButton: true,
+                focusConfirm: false,
+                confirmButtonText:
+                    '<a style="color: white" href="https://login.microsoftonline.com/?whr=taolearning.org"><i class="fa fa-address-card"></i> Login</a>',
+                confirmButtonAriaLabel: 'Login',
+            });
+                console.log('Submission was successful.');
+                console.log(data);
+                
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        }).then(function(response){ //
+        $("#server-results").html(response);
+    }); //form is validated do your work
+    }
+       
+    });
+   })
+</script>
+
 </body>
 </html>
