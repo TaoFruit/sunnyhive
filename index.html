@@ -30,6 +30,10 @@
 <link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
 <!--jquery-->
 <script src="js/modernizr-2.6.2.min.js"></script>
+
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
 </head>
 <body class="main">
 	<!--wrapper starts-->
@@ -65,41 +69,42 @@
                                     <ul class="sub-menu">
                                         <li> <a href="#">On-Site</a>
                                             <ul class="sub-menu">
-                                                <li> <a href="shortcodes.html">Half Day Program</a> </li>
-                                                <li><a href="buttons-lists.html" title="">Full Day Program</a></li>
-                                                <li><a href="columns.html" title="">Mommy & Me Program</a></li>
-                                                <li><a href="columns.html" title="">Special Needs Program</a></li>
+                                                <li> <a id="checkout-halfday" href="#">Half Day Program</a> </li>
+                                                <li><a id="checkout-fullday" href="#" title="">Full Day Program</a></li>
+                                                <li><a id="checkout-mommy" href="#" title="">Mommy & Me Program</a></li>
+                                                <li><a id="checkout-fullday" href="#" title="">Special Needs Program</a></li>
                                             </ul>
                                             <a class="dt-menu-expand">+</a> 
                                         </li>
                                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-1 menu-item-with-widget-area">
-                                            <a href="#">SunnyHive Online</a>
+                                            <a href="#">Online Membership</a>
                                             <div class="menu-item-widget-area-container">
                                                 <ul>
                                                     <li class="widget widget_popular_products">
                                                         <ul class="product_list_widget">
                                                             <li>
                                                                 <a href="#" title="">
-                                                                <img src="images/product_thumb1.jpg" alt="product"> Let's Learn ABCs! </a>
+                                                                <img src="images/product_thumb1.jpg" alt="product"> School Readiness </a>
                                                                 <span class="amount">Monday - Friday</span>
                                                             </li>
                                                             <li>
                                                                 <a href="#" title="">
-                                                                <img src="images/product_thumb2.jpg" alt="product"> Intro to Math </a>
+                                                                <img src="images/product_thumb2.jpg" alt="product"> Reading Program </a>
                                                                 <span class="amount">Monday - Friday</span>
                                                             </li>
                                                             <li>
                                                                 <a href="#" title="">
-                                                                <img src="images/product_thumb3.jpg" alt="product"> Word Fun </a>
+                                                                <img src="images/product_thumb3.jpg" alt="product"> Virtual Classroom </a>
                                                                 <span class="amount">Weekends</span>
                                                             </li>
+                                                            
                                                         </ul>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-1 menu-item-with-widget-area  fill-two-columns">
-                                            <a href="#">Private Class Card</a>
+                                            <a href="#">SMILE Coaching</a>
                                             <div class="menu-item-widget-area-container">
                                             	<ul>
                                                 	<li class="widget widget_recent_entries">
@@ -111,13 +116,12 @@
                                                         </div>
                                                         <div class="entry-details">
                                                         	<div class="entry-title">
-                                                            	<h5><a href="blog-detail.html"> Online App Sessions </a></h5>
+                                                            	<h5><a href="blog-detail.html"> Buy Online Lessons</a></h5>
                                                             </div>
                                                             <div class="entry-metadata">
-                                                            	<p class="author"><a href="#"> $60/lesson </a></p>
+                                                            	<p class="author"><a id="checkout-10" href="#"> 10 Lessons </a></p>
                                                                 <span class=""> | </span>
-                                                                <p class="comments"><a href="mailto:info@sunnyhive.com"><span class="fa fa-comment"></span></a></p>
-                                                                <p class="date"><a href="mailto:info@sunnyhive.com"> Ask for Details</a> </p>
+                                                                <p class="comments"><a id="checkout-50" href="#">50 Lessons</a></p>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -130,13 +134,13 @@
                                                         </div>
                                                         <div class="entry-details">
                                                         	<div class="entry-title">
-                                                            	<h5><a href="blog-detail.html"> The Gifted Club</a></h5>
+                                                            	<h5><a href="blog-detail.html">The Gifted Club</a></h5>
                                                             </div>
                                                             <div class="entry-metadata">
-                                                            	<p class="author"><a href="#"> $45/lesson </a></p>
+                                                            	<p class="author"><a id="checkout-gifted" href="#"> Buy Membership </a></p>
                                                                 <span class=""> | </span>
                                                                 <p class="comments"><a href="mailto:info@sunnyhive.com"><span class="fa fa-comment"></span></a></p>
-                                                                <p class="date"> <a href="mailto:info@sunnyhive.com"> Ask for Details</a> </p>
+                                                                <p class="date"> <a href="mailto:info@sunnyhive.com"> Details</a> </p>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -167,7 +171,7 @@
         <!--header ends-->
         <!--main starts-->
         <div id="main">
-        
+        <div id="error-message"></div>
             <!--slider starts-->
             <div id="slider"> 
                 <div id="layerslider_4" class="ls-wp-container" style="width:100%;height:610px;max-width:1920px;margin:0 auto;margin-bottom: 0px;">
@@ -862,6 +866,183 @@
     <script type='text/javascript' src="js/layerslider.transitions.js"></script> 
     <!--<script type="text/javascript">var lsjQuery = jQuery;</script>--> 
     <script type="text/javascript">var lsjQuery = jQuery;</script><script type="text/javascript"> lsjQuery(document).ready(function() { if(typeof lsjQuery.fn.layerSlider == "undefined") { lsShowNotice('layerslider_1','jquery'); } else { lsjQuery("#layerslider_4").layerSlider({responsiveUnder: 1240, layersContainer: 1060, skinsPath: 'js/layerslider/skins/'}) } }); </script>
+
     
+
+<script>
+  var stripe = Stripe('pk_test_M4lUHJesnz3f9gWbUJzdncMV', {
+    betas: ['checkout_beta_4']
+  });
+
+  var checkoutButton = document.getElementById('checkout-fullday');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{plan: 'plan_ErSEjD4elLClAq', quantity: 1}],
+
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: 'https://taolearning.org/success',
+      cancelUrl: 'https://taolearning.org/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
+
+
+<script>
+  var stripe = Stripe('pk_test_M4lUHJesnz3f9gWbUJzdncMV', {
+    betas: ['checkout_beta_4']
+  });
+
+  var checkoutButton = document.getElementById('checkout-halfday');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{plan: 'plan_ErS64o7rYHi016', quantity: 1}],
+
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: 'https://sunnyive.com/success',
+      cancelUrl: 'https://sunnyive.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
+
+<script>
+  var stripe = Stripe('pk_test_M4lUHJesnz3f9gWbUJzdncMV', {
+    betas: ['checkout_beta_4']
+  });
+
+  var checkoutButton = document.getElementById('checkout-mommy');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{plan: 'plan_ErSNEGTHk0iNsg', quantity: 1}],
+
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: 'https://taolearning.org/success',
+      cancelUrl: 'https://taolearning.org/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
+
+<script>
+  var stripe = Stripe('pk_test_M4lUHJesnz3f9gWbUJzdncMV', {
+    betas: ['checkout_beta_4']
+  });
+
+  var checkoutButton = document.getElementById('checkout-gifted');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{plan: 'plan_ErSmV56YxDw95K', quantity: 1}],
+
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: 'https://taolearning.org/success',
+      cancelUrl: 'https://taolearning.org/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
+    
+    <script>
+  var stripe = Stripe('pk_test_M4lUHJesnz3f9gWbUJzdncMV', {
+    betas: ['checkout_beta_4']
+  });
+
+  var checkoutButton = document.getElementById('checkout-10');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{plan: 'plan_ErSqHFb4jehH9L', quantity: 1}],
+
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: 'https://taolearning.org/success',
+      cancelUrl: 'https://taolearning.org/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
+
+
+<script>
+  var stripe = Stripe('pk_test_M4lUHJesnz3f9gWbUJzdncMV', {
+    betas: ['checkout_beta_4']
+  });
+
+  var checkoutButton = document.getElementById('checkout-50');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{plan: 'plan_ErSuKCNHryrj4l', quantity: 1}],
+
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: 'https://taolearning.org/success',
+      cancelUrl: 'https://taolearning.org/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
 </body>
 </html>
