@@ -60,7 +60,7 @@
                         <span class="fa fa-envelope"></span>
 					</p>
                     <p class="phone-no">
-                        <i>+1 740-538-0172</i>
+                        <i>+1 929-229-2917</i>
                         <span class="fa fa-phone"></span>
                 	</p>        
                 </div>
@@ -202,7 +202,7 @@
                     
                     <!--dt-sc-two-third starts-->
                     <div class="column dt-sc-three-fourth first contact_form_outer">
-                        <form name="frcontact" class="contact-form" method="post" action="https://prod-09.centralus.logic.azure.com:443/workflows/2e2099d779de4b459a057b9bc02f34a0/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ENJv6sqj3ihcSuT32escnXSgsrI-uDmtntYPha7UUdA" id="register">
+                        <form name="frcontact" class="contact-form" method="post" action="https://prod-43.eastus.logic.azure.com:443/workflows/d55a73a8f6c04b89aa0bc3e3d5c28198/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vup5WiOG0z3xHC1ovacBs5nJIEx9pn2c-AnXoc_-esI" id="register">
                         	<h2>Student Info</h2>
                             <p class="column dt-sc-one-third first">
                                 <input id="firstname" name="firstname" type="text" placeholder="Student First Name" required="">
@@ -211,7 +211,7 @@
                                 <input id="lastname" name="lastname" type="text" placeholder="Student Last Name" required="">
                             </p>
                              <p class="column dt-sc-one-third">
-                                 <input id="birth" name="birthdate" type="text" placeholder="Birth Date (mm/dd/year)" required="">
+                                 <input id="birth" name="birthdate" class="textbox-n" type="text" onfocus="(this.type='date')" placeholder="Birth Date (mm/dd/year)" required="">
                             </p>
                             <p class="column dt-sc-one-fourth first">
                                 <img align="right" src="images/dragon.png" width="85" height="55"><br>Pick a fun name.
@@ -234,13 +234,33 @@
                             <div class="column dt-sc-one-fourth">
                               <ul>
                                 <li>
-                                    <label><input type="radio" name="program" id="online" value="online" minlength="1"><a class="tooltip-1" data-placement="right" title="Digital Program">Online</a></label>
+                                    <label><input type="radio" name="realm" id="online" value="online" minlength="1"><a class="tooltip-1" data-placement="right" title="Digital Program">Online</a></label>
                                 </li>
                                 <li>
-                                    <label><input type="radio" name="program" id="inperson" value="inperson"><a class="tooltip-1" data-placement="right" title="In Person Education">In Person</a></label>
+                                    <label><input type="radio" name="realm" id="inperson" value="inperson"><a class="tooltip-1" data-placement="right" title="In Person Education">In Person</a></label>
                                 </li>
-                            </ul>
+                                <li>
+                                    <label><input type="radio" name="realm" id="both" value="both"><a class="tooltip-1" data-placement="right" title="Mixed Education Locations">Both</a></label>
+                                </li>
+                            </ul>https://teams.microsoft.com/l/team/19%3ac198bbe64747489ca1f4737eb3d9bd7e%40thread.skype/conversations?groupId=de5ea0af-3885-4bb6-8821-8fd6cc7c384d&tenantId=2febe90d-872e-4e31-b1ee-7898aac0159c
                             </div>
+                            <div>
+                                <p class="column dt-sc-two-third first">
+                                    <input id="information" name="information" type="text" placeholder="Any Special Information?" required="">
+                                </p>
+                                <p class="column dt-sc-one-third ">
+                                    <select name="favorite_subject" id="favorite_subject">
+                                        <option value="" selected>Favorite Subject</option>
+                                        <option value="Africa">Science</option>
+                                        <option value="Asia">Technology</option>
+                                        <option value="Australia">Engineering</option>
+                                        <option value="Europe">Arts</option>									
+                                        <option value="North America">Math</option>
+                                        <option value="South America">Any</option>
+                                    </select>
+                                </p>
+                            </div>
+                            
                            
                             <img src="images/footer_strip.jpg">
                             <br><br>
@@ -258,7 +278,7 @@
                                 <input id="email" name="email" type="email" placeholder="Email" required="">
                             </p>
                             <p class="column dt-sc-one-third">
-                            	<input id="subject" name="link" type="text" placeholder="@ Social Media Name">
+                            	<input id="subject" name="link" type="text" placeholder="@ Social Media Handle">
                             </p>
                             <p class="column dt-sc-one-third">
                             	<select name="location" id="location">
@@ -299,6 +319,9 @@
                     data-size="invisible">
                 </div>
 
+                <input type="hidden" name="program" id="Sunny Hive">
+                <input type="hidden" name="website" id="https://sunnyhive.com">
+                <input type="hidden" name="owner_id" id="c2abca68-4991-e911-a95b-000d3a34ec54">
                 <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
                 <input type="text" name="_gotcha" style="display:none" />
                 </p>
@@ -398,7 +421,7 @@
                         <h3 class="widgettitle steelblue_sketch">Contact</h3>
                             <div class="textwidget">
                                 <p class="dt-sc-contact-info"><span class="fa fa-map-marker"></span> 125 Frederick St, Marietta Ohio <br> United States </p>
-                                <p class="dt-sc-contact-info"><span class="fa fa-phone"></span> 740-538-0172 </p>
+                                <p class="dt-sc-contact-info"><span class="fa fa-phone"></span> 929-229-2917 </p>
                                 <p class="dt-sc-contact-info"><span class="fa fa-envelope"></span><a href="mailto:info@sunnyhive.com"> info@sunnyhive.com </a></p>
                             </div>
                         </aside>
